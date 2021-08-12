@@ -24,4 +24,13 @@ public class ProductController {
             return List.of("iPhone 11", "Samsung");
         }
     }
+
+    @GetMapping("/products/{productId}")
+    public Product getProductPathVariable(@PathVariable final String productId) {
+        if (productId.equals("iphone")) {
+            return new Product("iPhone 11");
+        } else {
+            return new Product("Samsung Galaxy Milky way");
+        }
+    }
 }
