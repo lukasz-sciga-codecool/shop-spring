@@ -11,8 +11,8 @@ import java.util.Map;
 @RequestMapping("/products")
 public class ProductController {
 
-    public static final Product IPHONE_11_PRODUCT = new Product("11", "iPhone");
-    public static final Product SAMSUNG_GALAXY_S20 = new Product("Galaxy S20", "Samsung");
+    public static final Product IPHONE_11_PRODUCT = new Product("11", "iPhone", 0L);
+    public static final Product SAMSUNG_GALAXY_S20 = new Product("Galaxy S20", "Samsung", 0L);
 
     @GetMapping("/")
     public List<Product> getProducts() {
