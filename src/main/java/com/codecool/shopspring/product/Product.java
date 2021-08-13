@@ -4,13 +4,19 @@ import java.util.Objects;
 
 public class Product {
     private final String name;
+    private final String brand;
 
-    public Product(String name) {
+    public Product(String name, String brand) {
         this.name = name;
+        this.brand = brand;
     }
 
     public String getName() {
         return name;
+    }
+
+    public String getBrand() {
+        return brand;
     }
 
     @Override
@@ -18,11 +24,11 @@ public class Product {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return Objects.equals(name, product.name);
+        return Objects.equals(name, product.name) && Objects.equals(brand, product.brand);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(name, brand);
     }
 }
