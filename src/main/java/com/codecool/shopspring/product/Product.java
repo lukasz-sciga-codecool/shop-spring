@@ -1,6 +1,10 @@
 package com.codecool.shopspring.product;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
@@ -13,16 +17,8 @@ public class Product {
 
     @Column(name = "coolname", length = 50)
     private String name;
+    @Column
     private String brand;
-
-    public Product() {
-    }
-
-    public Product(String name, String brand, Long id) {
-        this.name = name;
-        this.brand = brand;
-        this.id = id;
-    }
 
     public String getName() {
         return name;
