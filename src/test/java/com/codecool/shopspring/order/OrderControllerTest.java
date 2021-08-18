@@ -75,6 +75,11 @@ class OrderControllerTest {
     }
 
     @Test
+    void shouldAddProductReferenceInOrder() {
+        //todo
+    }
+
+    @Test
     void updateOrder() {
         //todo
     }

@@ -1,13 +1,17 @@
 package com.codecool.shopspring.order;
 
 import com.codecool.shopspring.product.Product;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -35,7 +39,13 @@ public class Order {
     private String title;
 
     @OneToMany(mappedBy = "order")
+    @JsonManagedReference
     private Set<Product> products = new HashSet<>();
+
+//    public void addProduct(final Product product) {
+//        product.setOrder(this);
+//        products.add(product);
+//    }
 
     @Override
     public boolean equals(Object o) {

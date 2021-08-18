@@ -1,7 +1,10 @@
 package com.codecool.shopspring.product;
 
 import com.codecool.shopspring.order.Order;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -30,8 +33,9 @@ public class Product {
     @Column
     private String brand;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "fk_order")
+    @JsonBackReference
     private Order order;
 
     public String getName() {

@@ -39,6 +39,7 @@ public class ProductService {
     private Product updateProductFields(Product current, Product updates) {
         current.setBrand(updates.getBrand());
         current.setName(updates.getName());
+        current.setOrder(updates.getOrder());
         return current;
     }
 
