@@ -1,6 +1,10 @@
 package com.codecool.shopspring.order;
 
 import com.codecool.shopspring.product.Product;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,6 +21,10 @@ import java.util.Set;
 
 @Entity
 @Table(name = "orders")
+@Getter
+@Setter
+@NoArgsConstructor
+//@EqualsAndHashCode, @ToString, @Data
 public class Order {
 
     @Id
@@ -28,36 +36,6 @@ public class Order {
 
     @OneToMany(mappedBy = "order")
     private Set<Product> products = new HashSet<>();
-
-    public void addProduct(final Product product)
-    {
-        products.add(product);
-        product.setOrder(this);
-    }
-
-    public Set<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(Set<Product> products) {
-        this.products = products;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     @Override
     public boolean equals(Object o) {
