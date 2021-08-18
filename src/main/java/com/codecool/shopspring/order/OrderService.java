@@ -33,6 +33,7 @@ public class OrderService {
     }
 
     private Order updateOrderFields(Order current, Order updates) {
+        current.setTitle(updates.getTitle());
         current.setProducts(updates.getProducts());
         return current;
     }

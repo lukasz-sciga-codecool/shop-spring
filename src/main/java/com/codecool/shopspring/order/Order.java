@@ -23,6 +23,9 @@ public class Order {
     @GeneratedValue
     private Long id;
 
+    @Column
+    private String title;
+
     @OneToMany(mappedBy = "order")
     private Set<Product> products = new HashSet<>();
 
@@ -46,6 +49,14 @@ public class Order {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     @Override
